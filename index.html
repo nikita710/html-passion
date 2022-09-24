@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <title>Assignment</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Custom CSS -->
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+
+        <div class="passion-wrap">
+            <div class="passion-sidebar">
+                <div class="sidebar-top">
+                    <ul class="list-inline">
+                        <li class="red"> <a href="#"></a> </li>
+                        <li class="yellow"> <a href="#"></a> </li>
+                        <li class="green"> <a href="#"></a> </li>
+                    </ul>
+                </div>
+                <div class="sidebar-list">
+                    <ul class="all-list">
+                        <li class="active"> <a href="javascript:void(0)" class="all"> <div class="left-align"> <img src="assets/img/icon-github.svg"> <span class="txt">All</span> </div> <span class="cnt">12</span> </a> </li>
+                        <li> <a href="javascript:void(0)" class="open"> <div class="left-align"> <img src="assets/img/icon-open-issue.svg"> <span class="txt">Open</span> </div> <span class="cnt">4</span> </a> </li>
+                        <li> <a href="javascript:void(0)" class="closed"> <div class="left-align"> <img src="assets/img/icon-closed-issue.svg"> <span class="txt">Closed</span> </div> <span class="cnt">8</span> </a> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="passion-body">
+                <div class="item">
+                    <div class="item-content">
+                        <label class="date">19-07-2016</label>
+                        <a href="javascript:void(0)" class="btn active"> Page changes </a>
+                        <a href="javascript:void(0)" class="btn active"> Review of last issues </a>
+                        <label class="date">18-07-2016</label>
+                        <a href="javascript:void(0)" class="btn"> Visual UI Update Review </a>
+                        <a href="javascript:void(0)" class="btn"> Sidebar changes </a>
+                        <label class="date">15-07-2016</label>
+                        <a href="javascript:void(0)" class="btn"> Crash update </a>
+                        <a href="javascript:void(0)" class="btn active"> Page visual UI Update Review </a>
+                        <a href="javascript:void(0)" class="btn"> Sidebar update </a>
+                        <label class="date">14-07-2016</label>
+                        <a href="javascript:void(0)" class="btn active"> Crash issue </a>
+                        <a href="javascript:void(0)" class="btn active"> Visual Update & Crash resolve </a>
+                        <label class="date">19-07-2016</label>
+                        <a href="javascript:void(0)" class="btn active"> Page changes </a>
+                        <a href="javascript:void(0)" class="btn active"> Page changes </a>
+                        <label class="date">19-07-2016</label>
+                        <a href="javascript:void(0)" class="btn active"> Page changes </a>
+                        <a href="javascript:void(0)" class="btn active"> Page changes </a>
+                    </div>
+                </div>
+                <div class="item open">
+                    <div class="item-content">
+
+                        <a href="javascript:void(0)" class="btn active"> Page changes </a>
+                        <a href="javascript:void(0)" class="btn active"> Review of last issues </a>
+
+                        <a href="javascript:void(0)" class="btn"> Visual UI Update Review </a>
+                        <a href="javascript:void(0)" class="btn"> Sidebar changes </a>
+
+                        <a href="javascript:void(0)" class="btn"> Crash update </a>
+                        <a href="javascript:void(0)" class="btn active"> Page visual UI Update Review </a>
+                        <a href="javascript:void(0)" class="btn"> Sidebar update </a>
+
+                        <a href="javascript:void(0)" class="btn active"> Crash issue </a>
+                        <a href="javascript:void(0)" class="btn active"> Visual Update & Crash resolve </a>
+
+                        <a href="javascript:void(0)" class="btn active"> Page changes </a>
+                        <a href="javascript:void(0)" class="btn active"> Page changes </a>
+
+                        <a href="javascript:void(0)" class="btn active"> Page changes </a>
+                        <a href="javascript:void(0)" class="btn active"> Page changes </a>
+                    </div>
+                </div>
+                <div class="item closed">
+                    <div class="item-content">
+                        <a href="javascript:void(0)" class="btn active"> Crash issue </a>
+                        <a href="javascript:void(0)" class="btn"> Visual Update & Crash resolve </a>
+
+                        <a href="javascript:void(0)" class="btn"> Page changes </a>
+                        <a href="javascript:void(0)" class="btn active"> Page changes </a>
+
+                        <a href="javascript:void(0)" class="btn"> Page changes </a>
+                        <a href="javascript:void(0)" class="btn active"> Page changes </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- JS Global -->
+        <script src="assets/plugins/jquery-2.1.3.js" type="application/javascript"></script>
+
+
+        <!-- Custom Js  --> 
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.all-list li a').click(function () {
+                    // fetch the class of the clicked item
+                    var ourClass = $(this).attr('class');
+
+                    // reset the active class on all the buttons
+                    $('.all-list li').removeClass('active');
+                    // update the active state on our clicked button
+                    $(this).parent().addClass('active');
+
+                    if (ourClass == 'all') {
+                        // show all our items
+                        $('.passion-body').children('div.item').show();
+                    }
+                    else {
+                        // hide all elements that don't share ourClass
+                        $('.passion-body').children('div:not(.' + ourClass + ')').hide();
+                        // show all elements that do share ourClass
+                        $('.passion-body').children('div.' + ourClass).show();
+                    }
+                    return false;
+                });
+
+                $('.item-content .btn').on('click', function (e) {
+                    $(this).toggleClass("active"); //you can list several class names 
+                    e.preventDefault();
+                });
+            });
+        </script>
+
+
+    </body>
+</html>
